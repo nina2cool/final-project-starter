@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
-class SignUp extends Component {
+class SignIn extends Component {
   constructor() {
     super();
 
@@ -15,7 +15,7 @@ class SignUp extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.props.onSignUp({
+    this.props.onSignIn({
       username: this.state.username,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
@@ -33,11 +33,10 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Sign Up</h2>
+      <div><h2>Sign In</h2>
       <form onSubmit={this.handleSubmit.bind(this)}>
         <FormGroup>
-          <ControlLabel>Your email address is your username. Enter it here.</ControlLabel>
+          <ControlLabel>Enter your username</ControlLabel>
           <FormControl
             type="email"
             name="username"
@@ -48,7 +47,7 @@ class SignUp extends Component {
         </FormGroup>
 
         <FormGroup>
-          <ControlLabel>Create a Password</ControlLabel>
+          <ControlLabel>Enter your password</ControlLabel>
           <FormControl
             type="password"
             name="password"
@@ -59,7 +58,7 @@ class SignUp extends Component {
         </FormGroup>
 
         <FormGroup>
-          <ControlLabel>Confirm Your New Password</ControlLabel>
+          <ControlLabel>Confirm your password</ControlLabel>
           <FormControl
             type="password"
             name="confirmPassword"
@@ -70,7 +69,7 @@ class SignUp extends Component {
         </FormGroup>
 
         <Button type="submit">
-         Sign Up
+         Sign In
        </Button>
       </form>
       </div>
@@ -78,8 +77,8 @@ class SignUp extends Component {
   }
 }
 
-SignUp.propTypes = {
-  onSignUp: PropTypes.func.isRequired
-};
+// SignIn.propTypes = {
+//   onSignIn: PropTypes.func.isRequired
+// };
 
-export default SignUp;
+export default SignIn;

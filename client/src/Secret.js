@@ -11,6 +11,7 @@ class Secret extends Component {
   }
 
   componentDidMount() {
+    
     axios.get('/api/secret', {
       headers: {
         authorization: localStorage.getItem('token')
