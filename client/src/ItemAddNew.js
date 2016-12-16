@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class NewItemForm extends Component {
+class ItemAddNew extends Component {
   constructor() {
     super();
 
@@ -52,8 +52,8 @@ class NewItemForm extends Component {
   }
 }
 
-NewItemForm.propTypes = {
+ItemAddNew.propTypes = {
   onAddItem: React.PropTypes.func.isRequired
 };
 
-export default NewItemForm;
+export default ItemAddNew;

@@ -28,7 +28,7 @@ module.exports = {
         // If we didn't find a list, it either does not
         // exist, or the user does not own it
         if (!list) {
-          return res.status(401).json('Cannot add item to this list');
+          return res.status(401).json('Did not find this list or the list does not exist');
         }
 
         // Assign our list to our foundList variable

@@ -3,7 +3,7 @@ import React from 'react';
 const YelpSearchBar = (props) => {
   return (
     <div>
-      <h4>Search by business name (ex: delis, Starbucks, restaurants, food, etc ): </h4>
+      <h4>Narrow by restaurant name: </h4>
       <input
         className='search-bar'
         type="text"

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class NewListForm extends Component {
+class ListAddNew extends Component {
   constructor() {
     super();
 
@@ -34,7 +34,7 @@ class NewListForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
-        
+
         <input
           type="text"
           name="listName"
@@ -53,8 +53,8 @@ class NewListForm extends Component {
   }
 }
 
-NewListForm.propTypes = {
+ListAddNew.propTypes = {
   onAddList: React.PropTypes.func.isRequired
 };
 
-export default NewListForm;
+export default ListAddNew;

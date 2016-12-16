@@ -11,7 +11,7 @@ class Secret extends Component {
   }
 
   componentDidMount() {
-    
+
     axios.get('/api/secret', {
       headers: {
         authorization: localStorage.getItem('token')
@@ -28,7 +28,10 @@ class Secret extends Component {
 
   render() {
     return (
-      <h1>{this.state.message}</h1>
+      <div className="secret_background">
+          <h1>Shhhh!!!! This is the secret hideout.</h1>
+          <h2>{this.state.message}</h2>
+      </div>
     );
   }
 }

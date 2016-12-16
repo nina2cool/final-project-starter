@@ -1,15 +1,16 @@
 import React from 'react';
 import Item from './Item';
 
-const ThisItemList = (props) => {
+const Items = (props) => {
     return (
-      <ul>
+      <ul className="item_list_outer_box">
         {props.items.map(item => {
           return (
             <Item
               key={item._id}
               id={item._id}
               itemText={item.itemText}
+              onDeleteItem={props.onDeleteItem}
             />
           )
         })}
@@ -17,4 +18,4 @@ const ThisItemList = (props) => {
     );
 }
 
-export default ThisItemList;
+export default Items;

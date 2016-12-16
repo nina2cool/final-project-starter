@@ -1,47 +1,124 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Nunito';
-  text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito';
+    text-align: center;
 }
 
-.list_of_lists {
-  list-style: none;
-  display: inline-block;
-  margin: 20px;
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 5px;
+
+/*  SECRET FORMATS  */
+
+.secret_background {
+    background: url("../public/secret.jpg") no-repeat center;
+    background-size: cover;
+    height: 100vh;
+}
+
+
+/*  LIST FORMATS  */
+
+.list_outer_box {
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.list_inner_box {
+    background: lightblue;
+    margin: 5px;
+    line-height: 2;
+    padding: 5px;
+}
+
+.list_inner_box:hover {
+    background: lightyellow;
+}
+
+.list_inner_box h4 {
+    text-overflow: clip;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.list_inner_box img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.list_inner_box a {
+    text-decoration: none;
+}
+
+.num_item_box {
+    border: 1px solid black;
+    background: lavender;
+    padding: 5px 10px;
+    font-weight: bold;
 }
 
 .delete_button {
-  color: red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
 
-.list_of_items {
-  list-style: none;
-  /*display: inline-block;*/
-  margin: 20px;
-  background: #333;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+
+/*  LIST ITEM FORMATS  */
+
+.item_list_outer_box {
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-img {
-  max-width: 30%;
+.item_list_item {
+    background: lightblue;
+    margin: 5px;
+    line-height: 2;
+    padding: 5px 20px;
+    font-weight: bold;
 }
 
-.list_of_listings {
-  max-width: 300px;
-  max-height: 300px;
-  list-style: none;
-  display: inline-block;
-  margin: 20px;
-  background: #333;
-  color: #fff;
-  padding: 20px;
-  border-radius: 5px;
+.item_list_item:hover {
+    background: lightyellow;
+}
+
+.item_list_item h4 {
+    text-overflow: clip;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+/*  YELP LISTINGS FORMATS  */
+
+.listing_outer_box {
+    padding: 10px;
+    text-align: left;
+}
+
+.listing_inner_box {
+    background: lightblue;
+    margin: 5px;
+    line-height: 2;
+    padding: 5px;
+}
+
+.listing_inner_box:hover {
+    background: lightyellow;
+}
+
+.listing_inner_box h4 {
+    text-overflow: clip;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.listing_inner_box img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.listing_inner_box a {
+    text-decoration: none;
 }

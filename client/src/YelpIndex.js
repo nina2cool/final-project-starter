@@ -9,24 +9,25 @@ class YelpIndex extends Component {
 
     this.state = {
       searchText: '',
-      listings: []
+      listings: [],
+      lists: [],
     };
   }
 
   componentDidMount() {
     axios.get('/yelp')
     .then(resp => {
-      //console.log(resp.data);
+      // console.log(resp.data);
       const response = resp.data;
       const responseListings = response.businesses;
-      console.log(responseListings);
+      // console.log(responseListings);
       this.setState({
         searchText: this.state.searchText,
         listings: responseListings
       })
-      console.log(this.state.listings);
+      // console.log(this.state.listings);
     })
-    .catch(err => console.log(`Error! ${err}`));
+
   }
 
   handleChange(event) {
@@ -54,12 +55,13 @@ class YelpIndex extends Component {
   renderDetails() {
     return (
       <div>
-        <h1>Search Yelp for Businesses in the Austin, TX Area</h1>
+        <h1>50 Highest Rated Restaurants in SW Austin</h1>
         <hr></hr>
         <YelpSearchBar value={this.state.searchText} onChange={this.handleChange.bind(this)}/>
         <hr></hr>
         <YelpListings
-          listings={this.getFilteredListings()} />
+          listings={this.getFilteredListings()}
+        />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewItemForm from './AddItem';
-import ItemList from './ItemList';
+import ItemAddNew from './ItemAddNew';
+import Items from './Items';
 import { Link } from 'react-router';
 
 
@@ -10,7 +10,8 @@ class ListDetail extends Component {
     super();
 
     this.state = {
-      list: null
+      list: null,
+      items: null
     };
   }
 
@@ -34,7 +35,7 @@ class ListDetail extends Component {
     // { itemText: 'whatever' }
     // { itemText: 'whatever', listId: 'adklfjadsf'asd }
     const newAttributes = { ...attributes, list: this.state.list._id };
-    console.log('handleAddItem');
+    // console.log('handleAddItem');
     axios.post('/api/items', newAttributes, {
       headers: {
         authorization: localStorage.getItem('token')
@@ -56,20 +57,55 @@ class ListDetail extends Component {
       .catch(err => console.log(err));
   }
 
+
+  handleDeleteItem(id) {
+    // console.log('delete', id);
+    // console.log(this.state.items);
+    // debugger;
+    axios.delete(`/api/items/${id}`, {
+      headers: {
+        authorization: localStorage.getItem('token')
+      }
+    })
+
+      .then(resp => {
+        // console.log('successfully deleted');
+        // console.log(this.state.list.items);
+        const items = this.state.list.items.filter(item => {
+          return item._id !== id;
+        });
+
+          this.setState(prev => {
+            return {
+              ...prev,
+              list: {
+                ...this.state.list,
+                items: [...items]
+              }
+            };
+          });
+        })
+
+      .catch(err => console.log(err));
+}
+
   renderDetails() {
     return (
       <div>
+
+          <h1>{this.state.list.listName}</h1>
+          <hr></hr>
           <Link to={`/listindex`}>Back to your lists</Link>
-          <h2>Name: {this.state.list.listName}</h2>
-          <h3>Add items to your list:</h3>
-          <NewItemForm
+          <h4>Add items to your list:</h4>
+          <ItemAddNew
               listId={this.state.list._id}
               onAddItem={this.handleAddItem.bind(this)}
             />
-            <hr></hr>
-           <ItemList items={this.state.list.items} />
-
-
+          <hr></hr>
+           <Items
+              items={this.state.list.items}
+              onDeleteItem={this.handleDeleteItem.bind(this)}
+           />
       </div>
     );
   }

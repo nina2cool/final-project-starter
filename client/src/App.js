@@ -56,12 +56,15 @@ class App extends Component {
          axios.post('/api/signin', credentials)
            .then(resp => {
              const { token } = resp.data;
+
+             localStorage.setItem('token', token);
+
              this.setState({
                ...this.state,
                signUpSignInError: '',
                authenticated: token
              });
-             localStorage.setItem('token', token);
+
            });
       }
     }
@@ -72,8 +75,6 @@ class App extends Component {
         authenticated: false
       });
     }
-
-
 
 
     renderSignUpSignIn() {

@@ -5,11 +5,12 @@ const Item = (props) => {
 
   return (
 
-      <li className="list_of_items">
+      <div className="item_list_item">
         <div>
           <h4>{props.itemText}</h4>
+          <span onClick={() => props.onDeleteItem(props.id)} className="delete_button">x Delete</span>
       </div>
-      </li>
+      </div>
   );
 }
 
