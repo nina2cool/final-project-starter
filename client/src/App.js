@@ -3,8 +3,9 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import SignUpSignIn from './SignUpSignIn';
 import TopNavbar from './TopNavbar';
 import Secret from './Secret';
-import YelpIndex from './YelpIndex';
 import ListIndex from './ListIndex';
+import YelpIndex from './YelpIndex';
+import YelpAddToList from './YelpAddToList';
 import ListDetail from './ListDetail';
 
 import axios from 'axios';
@@ -56,7 +57,6 @@ class App extends Component {
          axios.post('/api/signin', credentials)
            .then(resp => {
              const { token } = resp.data;
-
              localStorage.setItem('token', token);
 
              this.setState({
@@ -90,6 +90,7 @@ class App extends Component {
           <Match exactly pattern="/listindex" component={ListIndex} />
           <Match exactly pattern="/listdetail/:id" component={ListDetail} />
           <Match exactly pattern="/yelp" component={YelpIndex} />
+          <Match exactly pattern="/YelpAddToList/:name" component={YelpAddToList} />
           <Match exactly pattern="/secret" component={Secret} />
           <Miss render={() => <h1>NOT FOUND!</h1>} />
         </div>
@@ -99,7 +100,7 @@ class App extends Component {
     render() {
       return (
         <BrowserRouter>
-          <div className="App">
+          <div>
             <TopNavbar showNavItems={true} onSignOut={this.handleSignOut.bind(this)}/>
             {this.state.authenticated ? this.renderApp() : this.renderSignUpSignIn()}
           </div>

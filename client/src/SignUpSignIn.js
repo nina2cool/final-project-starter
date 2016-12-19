@@ -15,7 +15,7 @@ class SignUpSignIn extends Component {
 
   render() {
     return (
-      <Row>
+      <Row className="container">
         <Col xs={8} xsOffset={2}>
           {this.props.error && this.renderError()}
           <Tabs defaultActiveKey={1} id="signup-signin-tabs">

@@ -40,7 +40,7 @@ class YelpIndex extends Component {
   getFilteredListings() {
     const term = this.state.searchText.trim().toLowerCase();
     const listings = this.state.listings;
-    console.log(listings);
+    // console.log(listings);
 
     if (!term) {
       return listings;
@@ -54,7 +54,7 @@ class YelpIndex extends Component {
 
   renderDetails() {
     return (
-      <div>
+      <div className="container">
         <h1>50 Highest Rated Restaurants in SW Austin</h1>
         <hr></hr>
         <YelpSearchBar value={this.state.searchText} onChange={this.handleChange.bind(this)}/>

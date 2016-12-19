@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './List';
+import ListSelector from './ListSelector';
 import { Grid, Row } from 'react-bootstrap';
 
 const ThisList = (props) => {
@@ -8,14 +8,16 @@ const ThisList = (props) => {
               <div>
                   <Grid>
                     <Row>
+
                         {props.lists.map(list => {
                             return (
-                              <List
+                              <ListSelector
                                 key={list._id}
                                 id={list._id}
                                 listName={list.listName}
                                 items={list.items}
-                                onDeleteList={props.onDeleteList}
+                                onAddToList={props.onAddToList}
+                                listingName={props.listingName}
                               />
 
                             )

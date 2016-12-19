@@ -19,7 +19,7 @@ const app = express();
 const authenticationRoutes = require('./routes/authentication');
 const listRoutes = require('./routes/ListRoutes');
 const itemRoutes = require('./routes/ItemRoutes');
-const yelpRoutes = require('./routes/YelpRoutes');
+// const yelpRoutes = require('./routes/YelpRoutes');
 const authStrategy = passport.authenticate('authStrategy', {
     session: false
 });

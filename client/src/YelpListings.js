@@ -1,8 +1,6 @@
 import React from 'react';
 import YelpListing from './YelpListing';
 import { Grid, Row } from 'react-bootstrap';
-import List from './List';
-
 
 const YelpListings = (props) => {
 

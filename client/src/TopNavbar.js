@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 
 const TopNavbar = (props) => {
   return (
-    <Navbar inverse collapseOnSelect>
+    <Navbar fixedTop collapseOnSelect className="navbar_format">
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Final Project - Christina</Link>
+          <Link to="/"><span className="hvr-grow">Christina&#39;s Final Project</span></Link>
         </Navbar.Brand>
         { props.showNavItems ? <Navbar.Toggle /> : null }
       </Navbar.Header>
@@ -15,16 +15,16 @@ const TopNavbar = (props) => {
         props.showNavItems ?
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
+              <NavItem onClick={props.onSignOut}><span className="hvr-grow">Sign Out</span></NavItem>
             </Nav>
             <Nav pullRight>
-              <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
+              <Link to="/secret"><Navbar.Text><span className="hvr-grow">Secret</span></Navbar.Text></Link>
             </Nav>
             <Nav pullRight>
-              <Link to="/yelp"><Navbar.Text>Search Yelp</Navbar.Text></Link>
+              <Link to="/yelp"><Navbar.Text><span className="hvr-grow">Search Yelp</span></Navbar.Text></Link>
             </Nav>
             <Nav pullRight>
-              <Link to="/listindex"><Navbar.Text>My Lists</Navbar.Text></Link>
+              <Link to="/listindex"><Navbar.Text><span className="hvr-grow">My Lists</span></Navbar.Text></Link>
             </Nav>
           </Navbar.Collapse>
           : null

@@ -1,8 +1,25 @@
 body {
-    margin: 0;
+    margin-top: 80px;
     padding: 0;
     font-family: 'Nunito';
     text-align: center;
+    /*background: url("../public/texture.jpg") no-repeat center;
+    background-size: cover;*/
+}
+
+.navbar_format {
+    background: lightyellow;
+    /*background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../public/banner.jpg") no-repeat top;
+  background: url("../public/banner.jpg") no-repeat top;*/
+    background-size: cover;
+    /*height: 100px;
+  padding-top: 20px;*/
+    /*color: white;*/
+}
+
+.navbar-brand, .navbar-text, .navbar-nav a {
+    /*color: #fff !important;*/
+    /*background: #56BC10;*/
 }
 
 
@@ -28,6 +45,10 @@ body {
     margin: 5px;
     line-height: 2;
     padding: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .list_inner_box:hover {
@@ -51,10 +72,15 @@ body {
 }
 
 .num_item_box {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    border-radius: 50%;
     background: lavender;
     padding: 5px 10px;
     font-weight: bold;
+}
+
+.num_item_box:hover {
+  background: #66ff66;
 }
 
 .delete_button {
@@ -62,6 +88,10 @@ body {
     cursor: pointer;
 }
 
+.selector_button {
+  color: blue;
+  cursor: pointer;
+}
 
 /*  LIST ITEM FORMATS  */
 
@@ -77,6 +107,10 @@ body {
     line-height: 2;
     padding: 5px 20px;
     font-weight: bold;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .item_list_item:hover {
@@ -88,6 +122,7 @@ body {
     overflow: hidden;
     font-weight: bold;
 }
+
 
 /*  YELP LISTINGS FORMATS  */
 
@@ -101,6 +136,10 @@ body {
     margin: 5px;
     line-height: 2;
     padding: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .listing_inner_box:hover {
@@ -121,4 +160,52 @@ body {
 
 .listing_inner_box a {
     text-decoration: none;
+}
+
+
+/*  HOVER / ANIMATE STYLES  */
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
 }

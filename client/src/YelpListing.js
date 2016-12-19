@@ -1,8 +1,8 @@
 import React from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import { Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-
+// import axios from 'axios';
+import {Icon} from 'react-fa';
 
 
 const YelpListing = (props) => {
@@ -24,19 +24,16 @@ const YelpListing = (props) => {
                     <Col md={4}>
                       {props.price}
                     </Col>
-                    <Col md={4}>
-                        Rating: {props.rating}
-                    </Col>
-                    <Col md={4}>
-                        Reviews: {props.review_count}
+                    <Col md={8}>
+                        {props.rating} <Icon name="star"/>s / {props.review_count} reviews
                     </Col>
                   </Row>
                   <Row>
                     <Col md={6}>
-                      <a href={props.url} target="_blank">Visit Yelp Page</a>
+                      <a href={props.url} target="_blank">Go to <Icon name="yelp"/></a>
                     </Col>
                     <Col md={6}>
-                      Save to a List
+                      <Link to={`/YelpAddToList/${props.name}`}><Icon name="plus"/> Add to a List</Link>
                     </Col>
                   </Row>
                 </Col>

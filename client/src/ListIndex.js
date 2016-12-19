@@ -96,7 +96,7 @@ class ListIndex extends Component {
   render() {
 
     return (
-      <div>
+      <div className="container">
           <h1>My Lists</h1>
 
           <h4>Create a new list</h4>

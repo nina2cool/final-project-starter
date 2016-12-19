@@ -3,7 +3,8 @@ import axios from 'axios';
 import ItemAddNew from './ItemAddNew';
 import Items from './Items';
 import { Link } from 'react-router';
-
+import { Row, Col } from 'react-bootstrap';
+import ListEdit from './ListEdit';
 
 class ListDetail extends Component {
   constructor() {
@@ -89,6 +90,43 @@ class ListDetail extends Component {
       .catch(err => console.log(err));
 }
 
+  handleEditList(attributes) {
+
+      //console.log('i am edited');
+      //console.log(attributes);
+      const listId = this.state.list._id;
+      const listName = attributes.listName;
+      //console.log(listName);
+      // const newAttributes = { listName: listName, listId: this.state.list._id };
+      //console.log(listId);
+      const newAttributes = { listName: listName };
+      console.log(listName);
+      console.log(newAttributes);
+      axios.put(`/api/lists/${listId}`, newAttributes, {
+        headers: {
+          authorization: localStorage.getItem('token')
+        }
+      })
+
+        .then(resp => {
+
+          this.setState(prev => {
+            console.log('set state');
+            console.log(resp.data);
+            // return {
+            //   ...prev,
+            //   list: {
+            //     ...this.state.list,
+            //     items: [...prev.list.items, resp.data]
+            //   }
+            // };
+          });
+        })
+        .catch(err => console.log(err));
+
+
+  }
+
   renderDetails() {
     return (
       <div>
@@ -96,11 +134,25 @@ class ListDetail extends Component {
           <h1>{this.state.list.listName}</h1>
           <hr></hr>
           <Link to={`/listindex`}>Back to your lists</Link>
-          <h4>Add items to your list:</h4>
-          <ItemAddNew
-              listId={this.state.list._id}
-              onAddItem={this.handleAddItem.bind(this)}
-            />
+          <hr></hr>
+          <Row>
+            <Col md={6}>
+              <h4>Add items to your list:</h4>
+              <ItemAddNew
+                  listId={this.state.list._id}
+                  onAddItem={this.handleAddItem.bind(this)}
+              />
+            </Col>
+
+            <Col md={6}>
+              <h4>Edit your list name:</h4>
+              <ListEdit
+                  listId={this.state.list._id}
+                  onEditList={this.handleEditList.bind(this)}
+              />
+            </Col>
+          </Row>
+
           <hr></hr>
            <Items
               items={this.state.list.items}
