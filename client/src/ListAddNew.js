@@ -46,6 +46,7 @@ class ListAddNew extends Component {
         <input
           type="submit"
           value="+ Add New List"
+          className="btn btn-primary"
           disabled={!this.state.listName.trim()}
         />
       </form>

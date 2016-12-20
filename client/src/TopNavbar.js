@@ -24,6 +24,9 @@ const TopNavbar = (props) => {
               <Link to="/yelp"><Navbar.Text><span className="hvr-grow">Search Yelp</span></Navbar.Text></Link>
             </Nav>
             <Nav pullRight>
+              <Link to="/movieindex"><Navbar.Text><span className="hvr-grow">Search Movies</span></Navbar.Text></Link>
+            </Nav>
+            <Nav pullRight>
               <Link to="/listindex"><Navbar.Text><span className="hvr-grow">My Lists</span></Navbar.Text></Link>
             </Nav>
           </Navbar.Collapse>

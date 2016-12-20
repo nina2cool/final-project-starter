@@ -5,6 +5,8 @@ import TopNavbar from './TopNavbar';
 import Secret from './Secret';
 import ListIndex from './ListIndex';
 import YelpIndex from './YelpIndex';
+import MovieIndex from './MovieIndex';
+import MovieProfile from './MovieProfile';
 import YelpAddToList from './YelpAddToList';
 import ListDetail from './ListDetail';
 
@@ -90,6 +92,8 @@ class App extends Component {
           <Match exactly pattern="/listindex" component={ListIndex} />
           <Match exactly pattern="/listdetail/:id" component={ListDetail} />
           <Match exactly pattern="/yelp" component={YelpIndex} />
+          <Match exactly pattern="/movieindex" component={MovieIndex} />
+          <Match exactly pattern="/movieprofile/:id" component={MovieProfile} />
           <Match exactly pattern="/YelpAddToList/:name" component={YelpAddToList} />
           <Match exactly pattern="/secret" component={Secret} />
           <Miss render={() => <h1>NOT FOUND!</h1>} />

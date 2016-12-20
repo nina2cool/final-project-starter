@@ -121,7 +121,7 @@ class ListDetail extends Component {
 
           <h1>{this.state.list.listName}</h1>
           <hr></hr>
-          <Link to={`/listindex`}>Back to your lists</Link>
+          <Link to={`/listindex`}><button className="btn btn-primary">Back to your lists</button></Link>
           <hr></hr>
           <Row>
             <Col md={6}>

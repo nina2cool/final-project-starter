@@ -46,6 +46,7 @@ class ListEdit extends Component {
         <input
           type="submit"
           value="+ Edit List"
+          className="btn btn-primary"
           disabled={!this.state.listName.trim()}
         />
       </form>

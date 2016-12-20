@@ -45,6 +45,7 @@ class ItemAddNew extends Component {
         <input
           type="submit"
           value=" + Add New Item "
+          className="btn btn-primary"
           disabled={!this.state.itemText.trim()}
         />
       </form>

@@ -182,6 +182,81 @@ body {
 }
 
 
+/*  MOVIE LIST FORMATS  */
+
+.movie_profile p {
+    font-size: 15px;
+    text-align: justify;
+    padding: 15px;
+}
+
+.movie_poster_image {
+    width: 35%;
+}
+
+input {
+    margin: 5px;
+    margin-top: 0px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.movie_heading {
+    background: rgba(26, 56, 106, 0.7);
+    color: #fff;
+    margin: 10px;
+    line-height: 1.5;
+    padding: 2px;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.movie_box {
+    max-width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.movie_info {
+    min-height: 410px;
+}
+
+.movie_info h3 {
+    min-height: 60px;
+}
+
+.movie_search_results {
+    background: rgba(26, 56, 106, 0.7);
+    color: #fff;
+    margin: 10px;
+    line-height: 1.5;
+    padding: 20px;
+    border-radius: 5px;
+    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.movie_search_results input {
+    margin-top: 10px;
+}
+
+.movie_list {
+    padding: 20px;
+}
+
+.movie_profile {
+    padding-bottom: 35%;
+}
+
+.movie_info button {
+    margin: 5px;
+    margin-bottom: 10px;
+}
+
+
 /*  HOVER / ANIMATE STYLES  */
 
 .hvr-grow {

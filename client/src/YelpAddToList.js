@@ -81,7 +81,7 @@ class YelpAddToList extends Component {
       })
       .catch(err => console.log(err));
 
-      alert("Restaurant added!");
+      alert(listingName + " has been added to your list!");
 
   }
 
@@ -90,9 +90,17 @@ class YelpAddToList extends Component {
 
     return (
       <div>
-          <h1>Add Yelp Listing to a List</h1>
+          <h1>Add This to a List</h1>
           <hr></hr>
-          <Link to={`/yelp`}>Back to Search Yelp</Link>
+          <p>
+            <Link to={`/listindex`}><button className="btn btn-primary">View all your Lists</button></Link>
+          </p>
+          <p>
+            <Link to={`/yelp`}><button className="btn btn-primary">Back to Search Yelp</button></Link>
+          </p>
+          <p>
+            <Link to={`/movieindex`}><button className="btn btn-primary">Back to Search Movies</button></Link>
+          </p>
           <hr></hr>
           <h4>Choose an existing list:</h4>
           <ListsToSelect
