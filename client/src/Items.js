@@ -3,7 +3,7 @@ import Item from './Item';
 
 const Items = (props) => {
     return (
-      <ul className="item_list_outer_box">
+      <div className="item_list_outer_box">
         {props.items.map(item => {
           return (
             <Item
@@ -14,7 +14,7 @@ const Items = (props) => {
             />
           )
         })}
-      </ul>
+      </div>
     );
 }
 

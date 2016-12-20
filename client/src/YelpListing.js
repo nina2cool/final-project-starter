@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col } from 'react-bootstrap';
-// import axios from 'axios';
 import {Icon} from 'react-fa';
 
 
 const YelpListing = (props) => {
-  //const numItems = Object.keys(props.items).length;
-  // console.log(numItems);
 
   return (
 
-      <Col md={6} sm={6} className="listing_outer_box">
+      <Col md={6} sm={6} className="listing_outer_box hvr-grow">
         <Row className="listing_inner_box">
                 <Col md={3}>
                     <img src={props.image_url} alt={props.name} className="img-circle" />
@@ -41,11 +38,5 @@ const YelpListing = (props) => {
       </Col>
   );
 }
-//
-// YelpListing.propTypes = {
-//   name: React.PropTypes.string.isRequired,
-// }
-
-//  <div onClick={() => props.onDeleteList(props.id)} className="delete_button">x delete</div>
 
 export default YelpListing;

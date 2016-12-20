@@ -9,6 +9,6 @@ router.post('/', ItemsController.create);
 // Delete a single Item
 router.delete('/:id', ItemsController.remove);
 
-// edit an item - coming soon
+// edit an item - not going to do
 
 module.exports = router;

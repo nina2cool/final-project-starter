@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ListsToSelect from './ListsToSelect';
 import ListAddNew from './ListAddNew';
-// import ListDetail from './ListDetail';
-// import { BrowserRouter, Match, Miss } from 'react-router';
-// import { Link } from 'react-router';
-// const express = require('express');
-// const router = express.Router();
+import { Link } from 'react-router';
 
 class YelpAddToList extends Component {
   constructor() {
@@ -20,7 +16,6 @@ class YelpAddToList extends Component {
 
   componentDidMount() {
 
-
     // get the lists
     axios.get('/api/lists', {
       headers: {
@@ -29,14 +24,11 @@ class YelpAddToList extends Component {
     })
 
       .then(resp => {
-        // console.log(resp.data);
         this.setState({
           lists: resp.data,
         })
       })
       .catch(err => console.log(`Error! ${err}`));
-
-      //const currentListingName = this.props.params.name;
 
   }
 
@@ -63,12 +55,7 @@ class YelpAddToList extends Component {
     const listingName = attributes[0];
     const listId = attributes[1];
 
-    console.log('add to an existing list ' + attributes);
-    console.log(listingName);
-    console.log(listId);
-
     const newAttributes = { itemText: listingName, list: listId };
-    // console.log('handleAddItem');
     axios.post('/api/items', newAttributes, {
       headers: {
         authorization: localStorage.getItem('token')
@@ -77,52 +64,25 @@ class YelpAddToList extends Component {
 
       .then(resp => {
 
-        console.log('i got added');
+        axios.get(`/lists/${listId}`, {
+          headers: {
+            authorization: localStorage.getItem('token')
+          }
+        })
+          .then(resp => {
 
-        // router.get('/listdetail/:listId');
+            this.setState({
+              list: resp.data
+            })
+          })
+          .catch(err => console.log(`Error! ${err}`));
 
-        // axios.get(`/listdetail/${listId}`, {
-        //   headers: {
-        //     authorization: localStorage.getItem('token')
-        //   }
-        // })
-        //   .then(resp => {
-        //
-        //     this.setState({
-        //       list: resp.data
-        //     })
-        //   })
-        //   .catch(err => console.log(`Error! ${err}`));
 
-        // this.setState(prev => {
-        //   return {
-        //     ...prev,
-        //     list: {
-        //       ...this.state.list,
-        //       items: [...prev.list.items, resp.data]
-        //     }
-        //   };
-        // });
       })
       .catch(err => console.log(err));
 
+      alert("Restaurant added!");
 
-
-    // axios.post('/api/lists', attributes, {
-    //   headers: {
-    //     authorization: localStorage.getItem('token')
-    //   }
-    // })
-    //
-    //   .then(resp => {
-    //     this.setState(prev => {
-    //       return {
-    //         ...prev,
-    //         lists: [...prev.lists, resp.data]
-    //       };
-    //     });
-    //   })
-    //   .catch(err => console.log(err));
   }
 
 
@@ -131,8 +91,10 @@ class YelpAddToList extends Component {
     return (
       <div>
           <h1>Add Yelp Listing to a List</h1>
+          <hr></hr>
+          <Link to={`/yelp`}>Back to Search Yelp</Link>
+          <hr></hr>
           <h4>Choose an existing list:</h4>
-
           <ListsToSelect
             lists={this.state.lists}
             listingName={this.props.params.name}
@@ -141,8 +103,6 @@ class YelpAddToList extends Component {
           <hr></hr>
           <h4>OR create a new list:</h4>
           <ListAddNew onAddList={this.handleAddList.bind(this)}/>
-
-
 
       </div>
 

@@ -69,7 +69,7 @@ class SignUp extends Component {
           />
         </FormGroup>
 
-        <Button type="submit">
+        <Button type="submit" className="animated infinite pulse">
          Sign Up
        </Button>
       </form>

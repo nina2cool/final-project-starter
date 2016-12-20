@@ -33,8 +33,7 @@ class ListDetail extends Component {
 
 
   handleAddItem(attributes) {
-    // { itemText: 'whatever' }
-    // { itemText: 'whatever', listId: 'adklfjadsf'asd }
+
     const newAttributes = { ...attributes, list: this.state.list._id };
     // console.log('handleAddItem');
     axios.post('/api/items', newAttributes, {
@@ -60,9 +59,7 @@ class ListDetail extends Component {
 
 
   handleDeleteItem(id) {
-    // console.log('delete', id);
-    // console.log(this.state.items);
-    // debugger;
+
     axios.delete(`/api/items/${id}`, {
       headers: {
         authorization: localStorage.getItem('token')
@@ -70,8 +67,6 @@ class ListDetail extends Component {
     })
 
       .then(resp => {
-        // console.log('successfully deleted');
-        // console.log(this.state.list.items);
         const items = this.state.list.items.filter(item => {
           return item._id !== id;
         });
@@ -92,16 +87,10 @@ class ListDetail extends Component {
 
   handleEditList(attributes) {
 
-      //console.log('i am edited');
-      //console.log(attributes);
       const listId = this.state.list._id;
       const listName = attributes.listName;
-      //console.log(listName);
-      // const newAttributes = { listName: listName, listId: this.state.list._id };
-      //console.log(listId);
-      const newAttributes = { listName: listName };
-      console.log(listName);
-      console.log(newAttributes);
+      const newAttributes = { listName: listName, id: this.state.list._id };
+
       axios.put(`/api/lists/${listId}`, newAttributes, {
         headers: {
           authorization: localStorage.getItem('token')
@@ -111,15 +100,14 @@ class ListDetail extends Component {
         .then(resp => {
 
           this.setState(prev => {
-            console.log('set state');
-            console.log(resp.data);
-            // return {
-            //   ...prev,
-            //   list: {
-            //     ...this.state.list,
-            //     items: [...prev.list.items, resp.data]
-            //   }
-            // };
+
+            return {
+              ...prev,
+              list: {
+                ...resp.data,
+                items: [...prev.list.items]
+              }
+            };
           });
         })
         .catch(err => console.log(err));

@@ -1,25 +1,37 @@
 body {
     margin-top: 80px;
     padding: 0;
-    font-family: 'Nunito';
+    font-family: 'Open Sans';
     text-align: center;
-    /*background: url("../public/texture.jpg") no-repeat center;
-    background-size: cover;*/
-}
-
-.navbar_format {
-    background: lightyellow;
-    /*background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../public/banner.jpg") no-repeat top;
-  background: url("../public/banner.jpg") no-repeat top;*/
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("../public/snowman3.jpg") no-repeat center;
     background-size: cover;
-    /*height: 100px;
-  padding-top: 20px;*/
-    /*color: white;*/
+    background-position: top;
+    height: 90vh;
 }
 
-.navbar-brand, .navbar-text, .navbar-nav a {
-    /*color: #fff !important;*/
-    /*background: #56BC10;*/
+.horizontal_rule {
+    color: #000;
+}
+
+.navbar_format {}
+
+.navbar-brand, .navbar-text, .navbar-nav a, .navbar-brand>span {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.navbar-header {
+    /*width: 200px;*/
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse {
+        background: rgba(26, 56, 106, 0.9);
+    }
+}
+
+.image_logo {
+    /*width: 10%;*/
 }
 
 
@@ -41,7 +53,8 @@ body {
 }
 
 .list_inner_box {
-    background: lightblue;
+    background: rgba(26, 56, 106, 0.7);
+    color: #fff;
     margin: 5px;
     line-height: 2;
     padding: 5px;
@@ -52,13 +65,14 @@ body {
 }
 
 .list_inner_box:hover {
-    background: lightyellow;
+    background: rgba(30, 64, 123, 0.7);
 }
 
 .list_inner_box h4 {
     text-overflow: clip;
     overflow: hidden;
     font-weight: bold;
+    min-height: 50px;
 }
 
 .list_inner_box img {
@@ -72,26 +86,22 @@ body {
 }
 
 .num_item_box {
-    /*border: 1px solid black;*/
     border-radius: 50%;
-    background: lavender;
+    background: #fff;
     padding: 5px 10px;
     font-weight: bold;
-}
-
-.num_item_box:hover {
-  background: #66ff66;
+    color: #B21617;
 }
 
 .delete_button {
-    color: red;
     cursor: pointer;
 }
 
 .selector_button {
-  color: blue;
-  cursor: pointer;
+    color: blue;
+    cursor: pointer;
 }
+
 
 /*  LIST ITEM FORMATS  */
 
@@ -99,14 +109,18 @@ body {
     padding: 10px;
     text-align: left;
     margin-bottom: 20px;
+    margin: 0 5%;
+    min-height: 200px;
 }
 
 .item_list_item {
-    background: lightblue;
+    background: rgba(26, 56, 106, 0.7);
     margin: 5px;
     line-height: 2;
     padding: 5px 20px;
     font-weight: bold;
+    margin-top: 15px;
+    color: #fff;
     border-radius: 5px;
     -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
@@ -114,7 +128,7 @@ body {
 }
 
 .item_list_item:hover {
-    background: lightyellow;
+    background: rgba(30, 64, 123, 0.7);
 }
 
 .item_list_item h4 {
@@ -132,7 +146,8 @@ body {
 }
 
 .listing_inner_box {
-    background: lightblue;
+    background: rgba(26, 56, 106, 0.7);
+    color: #fff;
     margin: 5px;
     line-height: 2;
     padding: 5px;
@@ -143,16 +158,19 @@ body {
 }
 
 .listing_inner_box:hover {
-    background: lightyellow;
+    background: rgba(30, 64, 123, 0.7);
 }
 
 .listing_inner_box h4 {
+    margin-left: 15px;
     text-overflow: clip;
     overflow: hidden;
     font-weight: bold;
+    min-height: 50px;
 }
 
 .listing_inner_box img {
+    margin-top: 15px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -160,6 +178,7 @@ body {
 
 .listing_inner_box a {
     text-decoration: none;
+    color: #fff;
 }
 
 
@@ -185,6 +204,38 @@ body {
     transform: scale(1.1);
 }
 
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -207,5 +258,51 @@ body {
 @media (min-width: 1200px) {
     .container {
         width: 1170px;
+    }
+}
+
+
+/*  SCROLLING BACKGROUND  */
+
+.overlay {
+    position: fixed;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("../public/sf4.jpg");
+    -webkit-animation: 200s scroll infinite linear;
+    -moz-animation: 200s scroll infinite linear;
+    -o-animation: 200s scroll infinite linear;
+    -ms-animation: 200s scroll infinite linear;
+    animation: 200s scroll infinite linear;
+    top: 0;
+    left: 0;
+    height: 7%;
+}
+
+@-webkit-keyframes scroll {
+    100% {
+        background-position: 0px 3000px;
+    }
+}
+
+@-moz-keyframes scroll {
+    100% {
+        background-position: 0px 3000px;
+    }
+}
+
+@-o-keyframes scroll {
+    100% {
+        background-position: 0px 3000px;
+    }
+}
+
+@-ms-keyframes scroll {
+    100% {
+        background-position: 0px 3000px;
+    }
+}
+
+@keyframes scroll {
+    100% {
+        background-position: 0px 3000px;
     }
 }

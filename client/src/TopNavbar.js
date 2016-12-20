@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 
 const TopNavbar = (props) => {
   return (
-    <Navbar fixedTop collapseOnSelect className="navbar_format">
+    <Navbar fixedTop collapseOnSelect className="navbar_format overlay">
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/"><span className="hvr-grow">Christina&#39;s Final Project</span></Link>
+          <Link to="/"><span className="hvr-grow"><img src="favicon.png" alt="Christina McMillan" className="image_logo"/> Christina&#39;s Final Project</span></Link>
         </Navbar.Brand>
         { props.showNavItems ? <Navbar.Toggle /> : null }
       </Navbar.Header>

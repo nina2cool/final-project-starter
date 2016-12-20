@@ -8,7 +8,6 @@ class SignIn extends Component {
     this.state = {
       username: '',
       password: '',
-      confirmPassword: '',
     }
   }
 
@@ -18,7 +17,6 @@ class SignIn extends Component {
     this.props.onSignIn({
       username: this.state.username,
       password: this.state.password,
-      confirmPassword: this.state.confirmPassword
     });
   }
 
@@ -57,18 +55,7 @@ class SignIn extends Component {
           />
         </FormGroup>
 
-        <FormGroup>
-          <ControlLabel>Confirm your password</ControlLabel>
-          <FormControl
-            type="password"
-            name="confirmPassword"
-            onChange={event => this.handleChange(event)}
-            placeholder="Confirm Password"
-            value={this.state.confirmPassword}
-          />
-        </FormGroup>
-
-        <Button type="submit">
+        <Button type="submit" className="animated infinite pulse">
          Sign In
        </Button>
       </form>

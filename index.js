@@ -1,5 +1,3 @@
-// dotenv allows us to declare environment variables in a .env file, \
-// find out more here https://github.com/motdotla/dotenv
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -19,7 +17,6 @@ const app = express();
 const authenticationRoutes = require('./routes/authentication');
 const listRoutes = require('./routes/ListRoutes');
 const itemRoutes = require('./routes/ItemRoutes');
-// const yelpRoutes = require('./routes/YelpRoutes');
 const authStrategy = passport.authenticate('authStrategy', {
     session: false
 });
@@ -28,7 +25,6 @@ app.use(bodyParser.json());
 app.use('/api', authenticationRoutes);
 app.use('/api/lists', authStrategy, listRoutes);
 app.use('/api/items', authStrategy, itemRoutes);
-// app.use('/yelp', authStrategy, yelpRoutes);
 
 app.use((err, req, res, next) => {
     return res.status(500).send(`Error: ${err}`);
@@ -37,7 +33,6 @@ app.use((err, req, res, next) => {
 app.get('/api/secret', authStrategy, function(req, res, next) {
     res.send(`The current user is ${req.user.username}`);
 });
-
 
 const axios = require('axios');
 

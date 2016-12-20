@@ -42,25 +42,17 @@ module.exports = {
     },
 
     update: function(req, res) {
-        console.log('updated the list');
-        var listId = req.params.listId;
-        var listName = req.params.listName;
-        console.log(req.params.listName);
-        // console.log(listName);
-        // console.log(listId);
+        var listId = req.params.id;
+        var listName = req.body.listName;
         ListModel.findOne({
                 _id: listId
             },
             function(err, list) {
-                console.log(list.listName);
                 list.listName = listName;
-                console.log(req.body.name);
                 list.save(function(err, list) {
-                  console.log('i am saved');
-                  // res.redirect('/lists');
+                  return res.json(list);
                 });
             });
-        console.log('ended the update');
 
     }
 

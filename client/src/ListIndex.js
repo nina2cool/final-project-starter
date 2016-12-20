@@ -13,8 +13,6 @@ class ListIndex extends Component {
   }
 
   componentDidMount() {
-    // console.log('did mount');
-    // console.log(localStorage.getItem('token'));
     axios.get('/api/lists', {
       headers: {
         authorization: localStorage.getItem('token')
@@ -22,7 +20,6 @@ class ListIndex extends Component {
     })
 
       .then(resp => {
-        // console.log(resp.data);
         this.setState({
           lists: resp.data
         })
@@ -68,7 +65,6 @@ class ListIndex extends Component {
 
 
   handleDeleteList(id) {
-    // console.log('delete', id);
     axios.delete(`/api/lists/${id}`, {
       headers: {
         authorization: localStorage.getItem('token')
@@ -76,7 +72,7 @@ class ListIndex extends Component {
     })
 
       .then(resp => {
-        // console.log('successfully deleted');
+
         const lists = this.state.lists.filter(list => {
           return list._id !== id;
         });
@@ -101,7 +97,7 @@ class ListIndex extends Component {
 
           <h4>Create a new list</h4>
           <ListAddNew onAddList={this.handleAddList.bind(this)}/>
-          <hr></hr>
+          <hr className="horizontal_rule"></hr>
           <Lists
             lists={this.state.lists}
             onDeleteList={this.handleDeleteList.bind(this)}
