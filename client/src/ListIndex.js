@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Lists from './Lists';
 import ListAddNew from './ListAddNew';
+import { Redirect } from 'react-router';
+
 
 class ListIndex extends Component {
   constructor() {
@@ -65,6 +67,7 @@ class ListIndex extends Component {
 
 
   handleDeleteList(id) {
+
     axios.delete(`/api/lists/${id}`, {
       headers: {
         authorization: localStorage.getItem('token')
@@ -72,15 +75,15 @@ class ListIndex extends Component {
     })
 
       .then(resp => {
-
         const lists = this.state.lists.filter(list => {
           return list._id !== id;
         });
 
+        console.log(this.state.listWasDeleted);
           this.setState(prev => {
             return {
               ...prev,
-              lists: lists
+              lists: lists,
             };
           });
         })
@@ -102,6 +105,7 @@ class ListIndex extends Component {
             lists={this.state.lists}
             onDeleteList={this.handleDeleteList.bind(this)}
           />
+
       </div>
 
     );

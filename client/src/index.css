@@ -9,10 +9,6 @@ body {
     height: 90vh;
 }
 
-.horizontal_rule {
-    color: #000;
-}
-
 .navbar_format {}
 
 .navbar-brand, .navbar-text, .navbar-nav a, .navbar-brand>span {
@@ -34,6 +30,9 @@ body {
     /*width: 10%;*/
 }
 
+.white_text {
+  color: #fff;
+}
 
 /*  SECRET FORMATS  */
 
@@ -349,7 +348,7 @@ input {
     animation: 200s scroll infinite linear;
     top: 0;
     left: 0;
-    height: 7%;
+    height: 10%;
 }
 
 @-webkit-keyframes scroll {

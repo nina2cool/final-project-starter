@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ListsToSelect from './ListsToSelect';
 import ListAddNew from './ListAddNew';
-import { Link } from 'react-router';
+import { Link, Redirect } from 'react-router';
 
 class YelpAddToList extends Component {
   constructor() {
@@ -11,6 +11,7 @@ class YelpAddToList extends Component {
     this.state = {
       lists: [],
       listingName: null,
+      listToAddTo: null,
     }
   }
 
@@ -64,24 +65,15 @@ class YelpAddToList extends Component {
 
       .then(resp => {
 
-        axios.get(`/lists/${listId}`, {
-          headers: {
-            authorization: localStorage.getItem('token')
-          }
-        })
-          .then(resp => {
 
-            this.setState({
-              list: resp.data
-            })
-          })
-          .catch(err => console.log(`Error! ${err}`));
+        this.setState({
+          list: resp.data,
+          listToAddTo: listId,
+        })
 
 
       })
       .catch(err => console.log(err));
-
-      alert(listingName + " has been added to your list!");
 
   }
 
@@ -92,9 +84,6 @@ class YelpAddToList extends Component {
       <div>
           <h1>Add This to a List</h1>
           <hr></hr>
-          <p>
-            <Link to={`/listindex`}><button className="btn btn-primary">View all your Lists</button></Link>
-          </p>
           <p>
             <Link to={`/yelp`}><button className="btn btn-primary">Back to Search Yelp</button></Link>
           </p>
@@ -111,6 +100,10 @@ class YelpAddToList extends Component {
           <hr></hr>
           <h4>OR create a new list:</h4>
           <ListAddNew onAddList={this.handleAddList.bind(this)}/>
+          {
+            this.state.listToAddTo ? <Redirect to={`/listdetail/${this.state.listToAddTo}`} /> : null
+          }
+
 
       </div>
 

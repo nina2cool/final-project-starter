@@ -17,6 +17,7 @@ class ListDetail extends Component {
   }
 
   componentDidMount() {
+
     axios.get(`/api/lists/${this.props.params.id}`, {
       headers: {
         authorization: localStorage.getItem('token')

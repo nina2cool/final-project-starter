@@ -9,7 +9,7 @@ const List = (props) => {
   const numItems = Object.keys(props.items).length;
 
   return (
-          <Link to={`/listdetail/${props.id}`}>
+
           <Col md={3} sm={4} xs={12} className="list_outer_box">
             <Row className="list_inner_box">
 
@@ -17,16 +17,16 @@ const List = (props) => {
                 <p># of items: <span className="num_item_box">{numItems}</span></p>
 
                 <Col sm={6}>
-                  <Icon name="list-ul" />
+                  <Link to={`/listdetail/${props.id}`}><Icon name="list-ul" className="white_text"/></Link>
                 </Col>
 
                 <Col sm={6}>
-                    <div onClick={() => props.onDeleteList(props.id)} className="delete_button"><Icon name="trash" /></div>
+                    <div onClick={() => props.onDeleteList(props.id)} className="delete_button" ><Icon name="trash" /></div>
                 </Col>
 
             </Row>
           </Col>
-          </Link>
+
   );
 }
 

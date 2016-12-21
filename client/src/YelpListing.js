@@ -8,7 +8,7 @@ const YelpListing = (props) => {
 
   return (
 
-      <Col md={6} sm={6} className="listing_outer_box hvr-grow">
+      <Col md={6} sm={6} className="listing_outer_box">
         <Row className="listing_inner_box">
                 <Col md={3}>
                     <img src={props.image_url} alt={props.name} className="img-circle" />
