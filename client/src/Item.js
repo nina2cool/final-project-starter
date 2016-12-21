@@ -11,7 +11,10 @@ const Item = (props) => {
         <Col md={10}>
           <h4>{props.itemText}</h4>
         </Col>
-        <Col md={2}>
+        <Col md={1}>
+          <span onClick={() => props.onEditItem(props.id)} className="delete_button"><Icon name="pencil" /></span>
+        </Col>
+        <Col md={1}>
           <span onClick={() => props.onDeleteItem(props.id)} className="delete_button"><Icon name="trash" /></span>
         </Col>
         </Row>

@@ -6,10 +6,10 @@ module.exports = {
     const listId = req.body.list;
     const userId = req.user._id;
 
-    console.log('list id = ');
-    console.log(listId);
-    console.log('user ID = ');
-    console.log(userId);
+    // console.log('list id = ');
+    // console.log(listId);
+    // console.log('user ID = ');
+    // console.log(userId);
 
     // Declare a variable to set our created item to
     let newItem;

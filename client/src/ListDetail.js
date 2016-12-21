@@ -5,6 +5,7 @@ import Items from './Items';
 import { Link } from 'react-router';
 import { Row, Col } from 'react-bootstrap';
 import ListEdit from './ListEdit';
+import ItemEdit from './ItemEdit';
 
 class ListDetail extends Component {
   constructor() {
@@ -115,6 +116,14 @@ class ListDetail extends Component {
 
   }
 
+
+  handleEditItem(id) {
+
+    console.log('i am edited');
+  }
+
+
+
   renderDetails() {
     return (
       <div>
@@ -145,6 +154,7 @@ class ListDetail extends Component {
            <Items
               items={this.state.list.items}
               onDeleteItem={this.handleDeleteItem.bind(this)}
+              onEditItem={this.handleEditItem.bind(this)}
            />
       </div>
     );

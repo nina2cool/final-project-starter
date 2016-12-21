@@ -11,6 +11,7 @@ const Items = (props) => {
               id={item._id}
               itemText={item.itemText}
               onDeleteItem={props.onDeleteItem}
+              onEditItem={props.onEditItem}
             />
           )
         })}
