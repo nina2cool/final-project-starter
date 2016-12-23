@@ -18,6 +18,7 @@ class Secret extends Component {
       }
     })
       .then(resp => {
+
         this.setState({
           ...this.state,
           message: resp.data
@@ -30,7 +31,7 @@ class Secret extends Component {
     return (
       <div className="secret_background">
           <h1>Shhhh!!!! This is the secret hideout.</h1>
-          <h2>{this.state.message}</h2>
+          <h2>The current username is {this.state.message}.</h2>
       </div>
     );
   }

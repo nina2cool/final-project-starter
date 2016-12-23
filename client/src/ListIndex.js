@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Lists from './Lists';
 import ListAddNew from './ListAddNew';
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
 
 
 class ListIndex extends Component {

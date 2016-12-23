@@ -18,7 +18,8 @@ class App extends Component {
 
       this.state = {
         signUpSignInError: '',
-        authenticated: localStorage.getItem('token')
+        authenticated: localStorage.getItem('token'),
+        userName: '',
       };
     }
 
@@ -68,6 +69,7 @@ class App extends Component {
              });
 
            });
+
       }
     }
 
@@ -105,7 +107,10 @@ class App extends Component {
       return (
         <BrowserRouter>
           <div>
-            <TopNavbar showNavItems={true} onSignOut={this.handleSignOut.bind(this)}/>
+            <TopNavbar showNavItems={true}
+                onSignOut={this.handleSignOut.bind(this)}
+                userName={this.state.userName}
+            />
             {this.state.authenticated ? this.renderApp() : this.renderSignUpSignIn()}
           </div>
         </BrowserRouter>

@@ -31,7 +31,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/api/secret', authStrategy, function(req, res, next) {
-    res.send(`The current user is ${req.user.username}`);
+    res.send(`${req.user.username}`);
 });
 
 const axios = require('axios');
